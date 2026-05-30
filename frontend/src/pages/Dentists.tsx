@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useForm } from 'react-hook-form';
+import { useForm, type Resolver } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Plus, Pencil, Trash2, Search } from 'lucide-react';
@@ -30,7 +30,7 @@ export default function Dentists() {
   const [selected, setSelected] = useState<Dentist | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>({ resolver: zodResolver(schema) });
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>({ resolver: zodResolver(schema) as Resolver<FormData> });
 
   const openCreate = () => { setSelected(null); reset({ name: '', lastName: '', registration: undefined }); setMode('create'); };
   const openEdit   = (d: Dentist) => { setSelected(d); reset({ name: d.name, lastName: d.lastName, registration: d.registration }); setMode('edit'); };

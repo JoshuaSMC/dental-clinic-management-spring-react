@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useForm } from 'react-hook-form';
+import { useForm, type Resolver } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Plus, Pencil, Trash2, Search, X } from 'lucide-react';
@@ -36,7 +36,7 @@ export default function Appointments() {
   const [selected, setSelected] = useState<AppointmentDTO | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>({ resolver: zodResolver(schema) });
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>({ resolver: zodResolver(schema) as Resolver<FormData> });
 
   const dentistName = (id: number) => { const d = dentists.find(d => d.id === id); return d ? `${d.name} ${d.lastName}` : '—'; };
   const patientName = (id: number) => { const p = patients.find(p => p.id === id); return p ? `${p.name} ${p.lastName}` : '—'; };
