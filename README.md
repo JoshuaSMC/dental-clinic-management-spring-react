@@ -76,8 +76,8 @@ DentalClinic/
 
 ### 📦 Clonar el repositorio
 ```bash
-git clone https://github.com/usuario/atelier-dental.git
-cd atelier-dental
+git clone https://github.com/JoshuaSMC/dental-clinic-app.git
+cd dental-clinic-app
 ```
 
 ---
@@ -257,7 +257,7 @@ cd backend
 
 ## 👤 Autor
 
-- [@carlosdev](https://github.com/carlosdev)
+- [@JoshuaSMC](https://github.com/JoshuaSMC)
 
 ---
 
