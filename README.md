@@ -4,6 +4,8 @@ Aplicación web para la gestión interna de una clínica odontológica.
 Permite administrar odontólogos, pacientes y turnos con **control de acceso basado en roles (RBAC)**:  
 los **administradores** gestionan el equipo y los usuarios del sistema; los **recepcionistas** registran pacientes y manejan la agenda diaria.
 
+🌐 **Demo en vivo:** [atelier-dental.netlify.app](https://atelier-dental.netlify.app)
+
 ---
 
 ## ⚙️ Tecnologías
@@ -91,6 +93,7 @@ El backend requiere variables de entorno para arrancar:
 | `JWT_SECRET` | ✅ | Clave Base64 de mínimo 256 bits para firmar tokens JWT |
 | `ADMIN_SECRET` | ✅ | Clave secreta para autorizar la creación de nuevos admins vía `POST /auth/register-admin` |
 | `ADMIN_INITIAL_PASSWORD` | ❌ | Contraseña del admin de demo creado por `DataInitializer` (default: `Admin@Dental2025!`) |
+| `CORS_ALLOWED_ORIGINS` | ❌ | Orígenes permitidos para CORS, separados por coma (default: `http://localhost:5173,http://localhost:3000`) |
 
 ```bash
 cd backend
@@ -150,6 +153,8 @@ JWT_SECRET=reemplazar-con-clave-base64-256bits
 ADMIN_SECRET=reemplazar-con-clave-registro-admin
 # Opcional — contraseña del admin de demo (default: Admin@Dental2025!)
 # ADMIN_INITIAL_PASSWORD=MiPasswordSeguro123!
+# Opcional — orígenes CORS adicionales para producción
+# CORS_ALLOWED_ORIGINS=http://localhost:5173,http://localhost:3000,https://tu-frontend.netlify.app
 ```
 
 ---
@@ -228,7 +233,8 @@ El control de acceso se aplica en **dos capas independientes**:
 | `PUT` | `/appointments` | Actualizar turno _(id en el body)_ | Autenticado |
 | `DELETE` | `/appointments/{id}` | Cancelar / eliminar turno | Autenticado |
 
-> 📌 Swagger UI: `http://localhost:8081/swagger-ui.html`
+> 📌 Swagger UI (local): `http://localhost:8081/swagger-ui.html`  
+> 📌 Swagger UI (producción): `https://dental-clinic-app-production-9c34.up.railway.app/swagger-ui.html`
 
 ---
 
