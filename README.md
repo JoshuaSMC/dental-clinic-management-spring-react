@@ -78,8 +78,8 @@ DentalClinic/
 
 ### 📦 Clonar el repositorio
 ```bash
-git clone https://github.com/JoshuaSMC/dental-clinic-app.git
-cd dental-clinic-app
+git clone https://github.com/JoshuaSMC/dental-clinic-management-spring-react.git
+cd dental-clinic-management-spring-react
 ```
 
 ---
